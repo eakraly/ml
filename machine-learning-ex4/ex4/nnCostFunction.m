@@ -89,8 +89,8 @@ a3 = sigmoid(Theta2 * [1; a2]);
 d3 = a3 - Y(:,y(i));
 d2 = Theta2r'*d3 .* sigmoidGradient(z2);
 
-Theta1_grad = Theta1_grad + d2*[0,a1];
-Theta2_grad = Theta2_grad + d3*[0;a2]';
+Theta1_grad = Theta1_grad + d2*[1,a1];
+Theta2_grad = Theta2_grad + d3*[1;a2]';
 
 endfor
 
