@@ -96,14 +96,14 @@ endfor
 
 J = J + lambda/(2*m)*(sum(sum(Theta1r.*Theta1r)) + sum(sum(Theta2r.*Theta2r)));
 
-Theta1_zero = Theta1_grad;
+Theta1_zero = Theta1;
 Theta1_zero(:,1) = 0;
 
-Theta2_zero = Theta2_grad;
+Theta2_zero = Theta2;
 Theta2_zero(:,1) = 0;
 
-Theta1_grad = Theta1_grad/m +lambda/m*Theta1_zero;
-Theta2_grad = Theta2_grad/m +lambda/m*Theta2_zero;
+Theta1_grad = Theta1_grad/m + (lambda/m)*Theta1_zero;
+Theta2_grad = Theta2_grad/m + (lambda/m)*Theta2_zero;
 
 
 
