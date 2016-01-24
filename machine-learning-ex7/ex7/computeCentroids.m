@@ -26,11 +26,25 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+average = zeros(1, n);
+count = 0;
 
-
-
-
-
+for k = 1:K
+  for i = 1:m
+    
+    if (idx(i) == k)
+      average = average .+ X(i,:);
+      count = count + 1;
+    endif
+  
+  endfor
+  
+  if count > 0
+    centroids(k,:) = average ./ count;
+  endif 
+  average = zeros(1, n);
+  count = 0;
+endfor
 
 
 % =============================================================

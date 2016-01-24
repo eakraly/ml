@@ -20,8 +20,21 @@ idx = zeros(size(X,1), 1);
 %
 % Note: You can use a for-loop over the examples to compute this.
 %
+t = zeros(size(centroids,1), 1);
 
-
+for i = 1:size(X,1)
+  for k = 1:K
+    a = X(i,:);
+    b = centroids(k,:);
+    r = abs(a - b);
+    
+    t(k) = r*r';
+  endfor
+  
+  [v, r] = min(t);
+  idx(i) = r;
+  t = zeros(size(centroids,1), 1);
+endfor
 
 
 
