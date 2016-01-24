@@ -22,7 +22,7 @@ Z = zeros(size(X, 1), K);
 
 for i = 1:m
  x = X(i,:);
- u = U(:, K)';
+ u = U(:, 1:K)';
  Z(i,:) =  x * u';
 endfor
 
